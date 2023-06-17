@@ -1,0 +1,20 @@
+{
+  "equipo": {
+    "nombre": "Los Genios",
+    "numero": 5,
+    "integrantes": [
+      {
+        "nombre": "Juan",
+        "discord": "Juan#1234"
+      },
+      {
+        "nombre": "María",
+        "discord": "María#5678"
+      },
+      {
+        "nombre": "Carlos",
+        "discord": "Carlos#9012"
+      }
+    ]
+  }
+}
