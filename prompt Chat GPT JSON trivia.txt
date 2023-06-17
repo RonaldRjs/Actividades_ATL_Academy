@@ -1,0 +1,41 @@
+import json
+
+def generate_trivia_questions():
+    trivia = [
+        {
+            "pregunta": "¿Cuál es el planeta más grande del sistema solar?",
+            "opciones": ["Marte", "Júpiter", "Venus", "Saturno"],
+            "respuesta_correcta": 1,
+            "explicacion": "Júpiter es el planeta más grande del sistema solar, con una masa mucho mayor que cualquier otro planeta y con una atmósfera compuesta principalmente de hidrógeno y helio."
+        },
+        {
+            "pregunta": "¿Quién pintó la Mona Lisa?",
+            "opciones": ["Pablo Picasso", "Leonardo da Vinci", "Vincent van Gogh", "Frida Kahlo"],
+            "respuesta_correcta": 1,
+            "explicacion": "La Mona Lisa fue pintada por Leonardo da Vinci, uno de los artistas más famosos del Renacimiento italiano."
+        },
+        {
+            "pregunta": "¿Cuál es el río más largo del mundo?",
+            "opciones": ["Amazonas", "Nilo", "Mississippi", "Yangtsé"],
+            "respuesta_correcta": 0,
+            "explicacion": "El río Amazonas es considerado el río más largo del mundo, con una longitud aproximada de 6,400 kilómetros."
+        }
+    ]
+
+    return json.dumps(trivia)
+
+prompt = "generate_trivia_questions()"
+
+# Ejecuta el prompt para obtener el JSON con las preguntas y respuestas
+result = openai.ChatCompletion.create(
+    model="gpt-3.5-turbo",
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": prompt}
+    ]
+)
+
+json_output = result.choices[0].message.content
+
+# Imprime el JSON generado
+print(json_output)
